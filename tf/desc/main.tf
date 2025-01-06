@@ -39,6 +39,13 @@ resource "aws_security_group" "ssh_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   # Allow access to e.g. cache.nixos.org.
   egress {
     from_port   = 0
