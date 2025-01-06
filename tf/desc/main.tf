@@ -20,7 +20,7 @@ module "node-1" {
   base_ami        = module.amis.nixos_base_ami_id
   toplevel_file   = "${path.module}/../../default.nix"
   toplevel_attr   = "toplevel"
-  instance_type   = "t2.xlarge"
+  instance_type   = "t3a.small"
   ssh_key_name    = module.ssh.key_name
   ssh_private_key = module.ssh.private_key
   security_groups = [aws_security_group.ssh_security_group.name]
