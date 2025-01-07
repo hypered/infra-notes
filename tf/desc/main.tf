@@ -15,16 +15,29 @@ module "ssh" {
   env_prefix = "${var.env_prefix}"
 }
 
-module "node-1" {
+module "web-1" {
   source          = "./instance"
   base_ami        = module.amis.nixos_base_ami_id
   toplevel_file   = "${path.module}/../../default.nix"
-  toplevel_attr   = "toplevel"
+  toplevel_attr   = "web"
   instance_type   = "t3a.small"
   ssh_key_name    = module.ssh.key_name
   ssh_private_key = module.ssh.private_key
   security_groups = [aws_security_group.ssh_security_group.name]
-  node_id         = "node-1"
+  node_id         = "web-1"
+  env_prefix      = var.env_prefix
+}
+
+module "gh-runner-1" {
+  source          = "./instance"
+  base_ami        = module.amis.nixos_base_ami_id
+  toplevel_file   = "${path.module}/../../default.nix"
+  toplevel_attr   = "gh-runner"
+  instance_type   = "t3a.small"
+  ssh_key_name    = module.ssh.key_name
+  ssh_private_key = module.ssh.private_key
+  security_groups = [aws_security_group.ssh_security_group.name]
+  node_id         = "gh-runner-1"
   env_prefix      = var.env_prefix
 }
 
@@ -62,12 +75,22 @@ resource "aws_security_group" "ssh_security_group" {
 # -----------------------------------------------------------------------------
 # Outputs
 
-output "node_1_name" {
-  value = module.node-1.name
+output "web_1_name" {
+  value = module.web-1.name
   description = "The name of the EC2 instance"
 }
 
-output "node_1_public_ip" {
-  value = module.node-1.public_ip
+output "web_1_public_ip" {
+  value = module.web-1.public_ip
+  description = "The public IP address of the EC2 instance"
+}
+
+output "gh_runner_1_name" {
+  value = module.gh-runner-1.name
+  description = "The name of the EC2 instance"
+}
+
+output "gh_runner_1_public_ip" {
+  value = module.gh-runner-1.public_ip
   description = "The public IP address of the EC2 instance"
 }

@@ -51,8 +51,8 @@ resource "aws_s3_bucket_object" "nixos-base-ami" {
   bucket = module.s3.amis_bucket
   key    = "${var.env_prefix}-nixos-base.vhd"
 
-  source      = "${module.toplevel.result.out}/nixos-amazon-image-23.05pre-git-x86_64-linux.vhd"
-  source_hash = filemd5("${module.toplevel.result.out}/nixos-amazon-image-23.05pre-git-x86_64-linux.vhd")
+  source      = "${module.toplevel.result.out}/nixos-amazon-image-24.05pre-git-x86_64-linux.vhd"
+  source_hash = filemd5("${module.toplevel.result.out}/nixos-amazon-image-24.05pre-git-x86_64-linux.vhd")
 }
 
 resource "aws_ebs_snapshot_import" "nixos-base" {

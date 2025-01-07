@@ -12,15 +12,39 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
-        "branch": "nixos-23.05",
+        "branch": "nixos-24.05",
         "description": "Nix Packages collection",
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "70bdadeb94ffc8806c0570eb5c2695ad29f0e421",
-        "sha256": "05cbl1k193c9la9xhlz4y6y8ijpb2mkaqrab30zij6z4kqgclsrd",
+        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
+        "sha256": "0zydsqiaz8qi4zd63zsb2gij2p614cgkcaisnk11wjy3nmiq0x1s",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/70bdadeb94ffc8806c0570eb5c2695ad29f0e421.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/b134951a4c9f3c995fd7be05f3243f8ecd65d798.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "sops-nix": {
+        "branch": "master",
+        "description": "Atomic secret provisioning for NixOS based on sops",
+        "homepage": "",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "be0eec2d27563590194a9206f551a6f73d52fa34",
+        "sha256": "1l8ri2z9qd2hn4lggr2x14rypdymbj33yg7r7sv5z9zz10g1rlip",
+        "type": "tarball",
+        "url": "https://github.com/Mic92/sops-nix/archive/be0eec2d27563590194a9206f551a6f73d52fa34.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "srvos": {
+        "branch": "main",
+        "description": "NixOS profiles for servers [maintainer=@numtide]",
+        "homepage": "https://nix-community.github.io/srvos",
+        "owner": "nix-community",
+        "repo": "srvos",
+        "rev": "5d4550de420ee501d7fa0e6cd9031cd00354554c",
+        "sha256": "1jd7zb6n9y2gi79svgkgml9va4cpnv93gzv4ik14pgjcw47c445x",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/srvos/archive/5d4550de420ee501d7fa0e6cd9031cd00354554c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
