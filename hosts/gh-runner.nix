@@ -22,7 +22,7 @@ in
     networking.hostName = "gh-runner-1";
     networking.domain = "${config.env_prefix}.example.com";
 
-    networking.firewall.allowedTCPPorts = [80];
+    networking.firewall.allowedTCPPorts = [80 443];
 
     roles.github-actions-runner = {
       # Manually comment/uncomment for now
