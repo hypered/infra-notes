@@ -67,4 +67,8 @@ output "amis_bucket" {
 
 output "ami_import_role_name" {
   value = aws_iam_role.vmimport_role.name
+
+  depends_on = [
+    aws_iam_role_policy.vmimport_policy
+  ]
 }
