@@ -25,9 +25,11 @@ in
     networking.firewall.allowedTCPPorts = [80 443];
 
     roles.github-actions-runner = {
-      # Manually comment/uncomment for now
-      url = "https://github.com/noteed/infra-notes";
-      tokenFile = config.sops.secrets.gh-runner-token.path;
+      count = 1;
+      url = "https://github.com/hypered";
+      githubApp.id = "1121065";
+      githubApp.login = "hypered";
+      githubApp.privateKeyFile = config.sops.secrets.gh-runner-private-key.path;
     };
 
     services.nginx = {
@@ -54,10 +56,9 @@ in
       };
     };
 
-    # Manually comment/uncomment for now
-    sops.secrets.gh-runner-token = {
+    sops.secrets.gh-runner-private-key = {
       sopsFile = ../secrets/gh-runner.yaml;
-      key = "token";
+      key = "private_key";
     };
   };
 }

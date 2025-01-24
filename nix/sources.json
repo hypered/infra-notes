@@ -41,10 +41,10 @@
         "homepage": "https://nix-community.github.io/srvos",
         "owner": "nix-community",
         "repo": "srvos",
-        "rev": "5d4550de420ee501d7fa0e6cd9031cd00354554c",
-        "sha256": "1jd7zb6n9y2gi79svgkgml9va4cpnv93gzv4ik14pgjcw47c445x",
+        "rev": "a3bf377bade7672aba632b69c3da2b5cefbb42a7",
+        "sha256": "0sfndrs216w2cpkh4pdvdm6mknq69z06gflssl7f6r214srq9cff",
         "type": "tarball",
-        "url": "https://github.com/nix-community/srvos/archive/5d4550de420ee501d7fa0e6cd9031cd00354554c.tar.gz",
+        "url": "https://github.com/nix-community/srvos/archive/a3bf377bade7672aba632b69c3da2b5cefbb42a7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

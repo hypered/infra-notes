@@ -5,7 +5,7 @@ let
   sources = import ./nix/sources.nix;
   pkgs = import sources.nixpkgs {};
   modulesPath = "${pkgs.path}/nixos/modules";
-  srvos = (import sources.srvos {}).modules;
+  srvos = (import sources.srvos).modules;
 
   base = pkgs.nixos {
     imports = [
