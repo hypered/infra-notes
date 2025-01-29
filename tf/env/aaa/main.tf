@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "infra" {
-  source = "../../desc"
+  source = "../../desc/infra"
   env_prefix = "aaa"
 }
 

@@ -1,9 +1,9 @@
 keys:
+  - &ghrunner age1tktsvp8hdy0kt0wnxyh5uj2nxlqq9kvsdqcym8085w7hrs8lvu8q7lcnp6
   - &noteed age1jydee60ssqkgd2uayarrar7ndudst4ey2mpm580n0vkswkea7v5sawgmxj
-  - &ghrunner age1mju585hwcseh27knurpa8rg5p8w3pectxqmv3j9ygwa2p3ahc3fqp7jw0j
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
-    - age:
-      - *noteed
-      - *ghrunner
+      - age:
+          - *ghrunner
+          - *noteed
