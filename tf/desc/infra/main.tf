@@ -3,11 +3,9 @@ variable "env_prefix" {
   type        = string
 }
 
-module "amis" {
-  source = "./amis"
-  env_prefix = "${var.env_prefix}"
-  base_image_file = "${path.module}/../../../default.nix"
-  base_image_attr = "image"
+variable "nixos_base_ami_id" {
+  description = "ID of a base AMI"
+  type        = string
 }
 
 module "ssh" {
@@ -17,7 +15,7 @@ module "ssh" {
 
 module "web-1" {
   source          = "./instance"
-  base_ami        = module.amis.nixos_base_ami_id
+  base_ami        = var.nixos_base_ami_id
   toplevel_file   = "${path.module}/../../../default.nix"
   toplevel_attr   = "web"
   instance_type   = "t3a.small"
@@ -30,7 +28,7 @@ module "web-1" {
 
 module "gh-runner-1" {
   source          = "./instance"
-  base_ami        = module.amis.nixos_base_ami_id
+  base_ami        = var.nixos_base_ami_id
   toplevel_file   = "${path.module}/../../../default.nix"
   toplevel_attr   = "gh-runner"
   instance_type   = "t3a.small"

@@ -9,3 +9,8 @@ module "amis" {
   base_image_file = "${path.module}/../../../default.nix"
   base_image_attr = "image"
 }
+
+output "nixos_base_ami_id" {
+  value = module.amis.nixos_base_ami_id
+  description = "The ID of a NixOS base AMI"
+}

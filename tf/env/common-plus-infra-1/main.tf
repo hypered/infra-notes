@@ -2,13 +2,13 @@ provider "aws" {
   region = "eu-central-1"
 }
 
-module "infra" {
-  source = "../../desc/infra"
+module "common-plus-infra" {
+  source = "../../desc/common-plus-infra"
   env_prefix = "aaa"
 }
 
 locals {
-  outputs = module.infra
+  outputs = module.common-plus-infra
 }
 
 output "outputs" {

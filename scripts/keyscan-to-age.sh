@@ -4,10 +4,7 @@
 echo "Retrieving host key..."
 
 IP_ADDR=$(
-  tofu state show \
-    "module.infra.module.gh-runner-1.aws_instance.node" \
-    | grep "^    public_ip" \
-    | cut -d '"' -f 2
+  tofu output -json outputs | jq -r .gh_runner_1_public_ip
 )
 
 echo "IP address: ${IP_ADDR}"
