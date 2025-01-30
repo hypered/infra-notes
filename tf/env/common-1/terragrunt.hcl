@@ -8,8 +8,13 @@ provider "aws" {
 EOF
 }
 
+# Make sure we can access default.nix file in the Terragrunt cache.
+include "root" {
+  path   = find_in_parent_folders("root.hcl")
+}
+
 terraform {
-  source = "${get_path_to_repo_root()}/tf/desc//common"
+  source = "${path_relative_from_include()}//tf/desc/common"
 }
 
 inputs = {
