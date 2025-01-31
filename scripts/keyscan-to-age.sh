@@ -3,9 +3,15 @@
 
 echo "Retrieving host key..."
 
-IP_ADDR=$(
-  tofu output -json outputs | jq -r .gh_runner_1_public_ip
-)
+if [ -f main.tf ]; then
+  IP_ADDR=$(
+    tofu output -json outputs | jq -r .gh_runner_1_public_ip
+  )
+else
+  IP_ADDR=$(
+    terragrunt output -json | jq -r .gh_runner_1_public_ip.value
+  )
+fi
 
 echo "IP address: ${IP_ADDR}"
 
@@ -30,4 +36,4 @@ yq '
 
 
 echo "You should retrieve the GitHub private key and run"
-echo "nix-shell -p --run 'sops updatekeys ../../../secrets/gh-runner.yaml --yes'"
+echo "nix-shell -p sops --run 'sops updatekeys ../../../secrets/gh-runner.yaml --yes'"
