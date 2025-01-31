@@ -1,10 +1,6 @@
 # Define an S3 bucket for remote and shared Terraform state storage, together
 # with a DynamoDB table for state locking.
 
-provider "aws" {
-  region = "eu-central-1"
-}
-
 terraform {
   required_providers {
     aws = {
